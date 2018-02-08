@@ -48,8 +48,8 @@ type User struct {
   Username    string        `sql:"type:varchar(150),notnull"`
   FirstName   string        `sql:"type:varchar(30),notnull"`
   LastName    string        `sql:"type:varchar(30),notnull"`
-  Email       string        `sql:"varchar(254),notnull"`
-  Password    string        `sql:"varchar(128),notnull"`
+  Email       string        `sql:"type:varchar(254),notnull"`
+  Password    string        `sql:"type:varchar(128),notnull"`
   IsStaff     bool          `sql:",notnull"`
   IsActive    bool          `sql:",notnull"`
   IsSuperuser bool          `sql:",notnull"`
