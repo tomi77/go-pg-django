@@ -1,17 +1,17 @@
 package site
 
 import (
-  "fmt"
+	"fmt"
 )
 
 func ExampleSite_String() {
-  site := Site{
-    Id: 1,
-    Domain: "www.example.com",
-    Name: "Main page",
-  }
+	site := Site{
+		Id:     1,
+		Domain: "www.example.com",
+		Name:   "Main page",
+	}
 
-  fmt.Println(site)
-  // Output:
-  // www.example.com
+	fmt.Println(site)
+	// Output:
+	// www.example.com
 }
