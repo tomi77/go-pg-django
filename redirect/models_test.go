@@ -6,7 +6,7 @@ import (
 	"github.com/tomi77/go-pg-django/site"
 )
 
-func ExampleSite_String() {
+func ExampleRedirect_String() {
 	site := site.Site{
 		Id:     1,
 		Domain: "www.example.com",
