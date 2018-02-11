@@ -1,3 +1,6 @@
+/*
+Models from `django.contrib.redirect` package
+*/
 package redirect
 
 import (

@@ -1,3 +1,6 @@
+/*
+Models from `django.contrib.admin` package
+*/
 package admin
 
 import (
@@ -8,11 +11,9 @@ import (
 	"github.com/tomi77/go-pg-django/content_type"
 )
 
-const (
-	ADDITION = 1
-	CHANGE   = 2
-	DELETION = 3
-)
+const ADDITION = 1
+const CHANGE = 2
+const DELETION = 3
 
 type Log struct {
 	TableName string `sql:"django_admin_log"`

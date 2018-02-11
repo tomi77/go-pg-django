@@ -1,3 +1,6 @@
+/*
+Models from `django.contrib.auth` package
+*/
 package auth
 
 import (

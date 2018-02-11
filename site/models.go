@@ -1,3 +1,6 @@
+/*
+Models from `django.contrib.site` package
+*/
 package site
 
 type Site struct {

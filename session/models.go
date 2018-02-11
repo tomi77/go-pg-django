@@ -1,3 +1,6 @@
+/*
+Models from `django.contrib.session` package
+*/
 package session
 
 import (

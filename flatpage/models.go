@@ -1,3 +1,6 @@
+/*
+Models from `django.contrib.flatpage` package
+*/
 package flatpage
 
 import (

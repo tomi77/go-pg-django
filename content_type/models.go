@@ -1,3 +1,6 @@
+/*
+Models from `django.contrib.content_type` package
+*/
 package content_type
 
 type ContentType struct {
