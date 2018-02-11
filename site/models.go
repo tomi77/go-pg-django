@@ -7,8 +7,8 @@ type Site struct {
 	TableName string `sql:"django_site"`
 
 	Id     uint16
-	Domain string `sql:",notnull"`
-	Name   string `sql:",notnull"`
+	Domain string `sql:"type:varchar(100),notnull"`
+	Name   string `sql:"type:varchar(50),notnull"`
 }
 
 func (s Site) String() string {

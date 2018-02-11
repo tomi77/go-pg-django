@@ -40,8 +40,8 @@ type GroupPermission struct {
 	TableName string `sql:"auth_group_permissions"`
 
 	Id           uint16
-	GroupId      uint16
-	PermissionId uint16
+	GroupId      uint16 `sql:",notnull"`
+	PermissionId uint16 `sql:",notnull"`
 }
 
 type User struct {
@@ -70,14 +70,14 @@ type UserGroup struct {
 	TableName string `sql:"auth_user_groups"`
 
 	Id      uint16
-	UserId  uint16
-	GroupId uint16
+	UserId  uint16 `sql:",notnull"`
+	GroupId uint16 `sql:",notnull"`
 }
 
 type UserPermission struct {
 	TableName string `sql:"auth_user_user_permissions"`
 
 	Id           uint16
-	UserId       uint16
-	PermissionId uint16
+	UserId       uint16 `sql:",notnull"`
+	PermissionId uint16 `sql:",notnull"`
 }

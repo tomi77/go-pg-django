@@ -15,8 +15,8 @@ type Redirect struct {
 	Id      uint16
 	SiteId  uint16 `pg:",fk:Site" sql:",notnull"`
 	Site    *site.Site
-	OldPath string `sql:",notnull"`
-	NewPath string `sql:",notnull"`
+	OldPath string `sql:"type:varchar(200),notnull"`
+	NewPath string `sql:"type:varchar(200),notnull"`
 }
 
 func (r Redirect) String() string {
