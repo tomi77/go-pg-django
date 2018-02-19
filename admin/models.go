@@ -11,9 +11,12 @@ import (
 	"github.com/tomi77/go-pg-django/content_type"
 )
 
-const ADDITION = 1
-const CHANGE = 2
-const DELETION = 3
+// Action flags
+const (
+	ADDITION = 1
+	CHANGE   = 2
+	DELETION = 3
+)
 
 type Log struct {
 	TableName string `sql:"django_admin_log"`
@@ -43,14 +46,14 @@ func (l Log) String() string {
 	}
 }
 
-func (l Log) IsAddition() bool {
+func (l *Log) IsAddition() bool {
 	return l.ActionFlag == ADDITION
 }
 
-func (l Log) IsChange() bool {
+func (l *Log) IsChange() bool {
 	return l.ActionFlag == CHANGE
 }
 
-func (l Log) IsDeletion() bool {
+func (l *Log) IsDeletion() bool {
 	return l.ActionFlag == DELETION
 }

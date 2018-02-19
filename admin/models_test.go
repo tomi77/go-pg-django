@@ -6,133 +6,132 @@ import (
 	"time"
 )
 
-var logs = []Log{
-	{
+func ExampleLog_String_addition() {
+	var log = Log{
 		Id:         1,
 		ActionTime: time.Now(),
 		UserId:     1,
 		ObjectRepr: "Test",
 		ActionFlag: ADDITION,
-	},
-	{
+	}
+
+	fmt.Println(log)
+	// Output:
+	// Added Test.
+}
+
+func ExampleLog_String_change() {
+	var log = Log{
 		Id:            2,
 		ActionTime:    time.Now(),
 		UserId:        1,
 		ObjectRepr:    "Test",
 		ActionFlag:    CHANGE,
 		ChangeMessage: "update",
-	},
-	{
+	}
+
+	fmt.Println(log)
+	// Output:
+	// Changed Test - update
+}
+
+func ExampleLog_String_deletion() {
+	var log = Log{
 		Id:         3,
 		ActionTime: time.Now(),
 		UserId:     1,
 		ObjectRepr: "Test",
 		ActionFlag: DELETION,
-	},
-	{
+	}
+
+	fmt.Println(log)
+	// Output:
+	// Deleted Test.
+}
+
+func TestLog_String(t *testing.T) {
+	var log = Log{
 		Id:         4,
 		ActionTime: time.Now(),
 		UserId:     1,
 		ObjectRepr: "Test",
-	},
+	}
+
+	w := "LogEntry Object"
+	g := log.String()
+	if g != w {
+		t.Errorf("Wanted %s got %s", w, g)
+	}
 }
 
-func TestString(t *testing.T) {
-	t.Run("ADDITION", func(t *testing.T) {
-		g := logs[0].String()
-		w := "Added Test."
-		if g != w {
-			t.Error(fmt.Sprintf("Wanted %q got %q", w, g))
-		}
-	})
-	t.Run("CHANGE", func(t *testing.T) {
-		g := logs[1].String()
-		w := "Changed Test - update"
-		if g != w {
-			t.Error(fmt.Sprintf("Wanted %q got %q", w, g))
-		}
-	})
-	t.Run("DELETION", func(t *testing.T) {
-		g := logs[2].String()
-		w := "Deleted Test."
-		if g != w {
-			t.Error(fmt.Sprintf("Wanted %q got %q", w, g))
-		}
-	})
-	t.Run("other", func(t *testing.T) {
-		g := logs[3].String()
-		w := "LogEntry Object"
-		if g != w {
-			t.Error(fmt.Sprintf("Wanted %q got %q", w, g))
-		}
-	})
+func ExampleLog_IsAddition() {
+	var logs = []Log{
+		{
+			ActionFlag: ADDITION,
+		},
+		{
+			ActionFlag: CHANGE,
+		},
+		{
+			ActionFlag: DELETION,
+		},
+		{},
+	}
+
+	for _, log := range logs {
+		fmt.Println(log.IsAddition())
+	}
+	// Output:
+	// true
+	// false
+	// false
+	// false
 }
 
-func TestIsAddition(t *testing.T) {
-	t.Run("ADDITION", func(t *testing.T) {
-		if logs[0].IsAddition() != true {
-			t.Error("Wanted true got false")
-		}
-	})
-	t.Run("CHANGE", func(t *testing.T) {
-		if logs[1].IsAddition() != false {
-			t.Error("Wanted false got true")
-		}
-	})
-	t.Run("DELETION", func(t *testing.T) {
-		if logs[2].IsAddition() != false {
-			t.Error("Wanted false got true")
-		}
-	})
-	t.Run("other", func(t *testing.T) {
-		if logs[3].IsAddition() != false {
-			t.Error("Wanted false got true")
-		}
-	})
+func ExampleLog_IsChange() {
+	var logs = []Log{
+		{
+			ActionFlag: ADDITION,
+		},
+		{
+			ActionFlag: CHANGE,
+		},
+		{
+			ActionFlag: DELETION,
+		},
+		{},
+	}
+
+	for _, log := range logs {
+		fmt.Println(log.IsChange())
+	}
+	// Output:
+	// false
+	// true
+	// false
+	// false
 }
 
-func TestIsChange(t *testing.T) {
-	t.Run("ADDITION", func(t *testing.T) {
-		if logs[0].IsChange() != false {
-			t.Error("Wanted false got true")
-		}
-	})
-	t.Run("CHANGE", func(t *testing.T) {
-		if logs[1].IsChange() != true {
-			t.Error("Wanted true got false")
-		}
-	})
-	t.Run("DELETION", func(t *testing.T) {
-		if logs[2].IsChange() != false {
-			t.Error("Wanted false got true")
-		}
-	})
-	t.Run("other", func(t *testing.T) {
-		if logs[3].IsChange() != false {
-			t.Error("Wanted false got true")
-		}
-	})
-}
+func ExampleLog_IsDeletion() {
+	var logs = []Log{
+		{
+			ActionFlag: ADDITION,
+		},
+		{
+			ActionFlag: CHANGE,
+		},
+		{
+			ActionFlag: DELETION,
+		},
+		{},
+	}
 
-func TestIsDeletion(t *testing.T) {
-	t.Run("ADDITION", func(t *testing.T) {
-		if logs[0].IsDeletion() != false {
-			t.Error("Wanted false got true")
-		}
-	})
-	t.Run("CHANGE", func(t *testing.T) {
-		if logs[1].IsDeletion() != false {
-			t.Error("Wanted false got true")
-		}
-	})
-	t.Run("DELETION", func(t *testing.T) {
-		if logs[2].IsDeletion() != true {
-			t.Error("Wanted true got false")
-		}
-	})
-	t.Run("other", func(t *testing.T) {
-		if logs[3].IsDeletion() != false {
-			t.Error("Wanted false got true")
-		}
-	})
+	for _, log := range logs {
+		fmt.Println(log.IsDeletion())
+	}
+	// Output:
+	// false
+	// false
+	// true
+	// false
 }
