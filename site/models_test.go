@@ -6,7 +6,7 @@ import (
 
 func ExampleSite_String() {
 	site := Site{
-		Id:     1,
+		ID:     1,
 		Domain: "www.example.com",
 		Name:   "Main page",
 	}

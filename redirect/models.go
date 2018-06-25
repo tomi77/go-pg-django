@@ -1,6 +1,4 @@
-/*
-Models from `django.contrib.redirect` package
-*/
+// Package redirect contains models from `django.contrib.redirect` package
 package redirect
 
 import (
@@ -9,11 +7,12 @@ import (
 	"github.com/tomi77/go-pg-django/site"
 )
 
+// Redirect represents django_redirect table
 type Redirect struct {
 	TableName string `sql:"django_redirect"`
 
-	Id      uint16
-	SiteId  uint16 `pg:",fk:Site" sql:",notnull"`
+	ID      uint16
+	SiteID  uint16 `pg:",fk:Site" sql:",notnull"`
 	Site    *site.Site
 	OldPath string `sql:"type:varchar(200),notnull"`
 	NewPath string `sql:"type:varchar(200),notnull"`

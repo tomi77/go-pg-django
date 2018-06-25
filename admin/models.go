@@ -1,6 +1,4 @@
-/*
-Models from `django.contrib.admin` package
-*/
+// Package admin contains models from `django.contrib.admin` package
 package admin
 
 import (
@@ -8,7 +6,7 @@ import (
 	"time"
 
 	"github.com/tomi77/go-pg-django/auth"
-	"github.com/tomi77/go-pg-django/content_type"
+	"github.com/tomi77/go-pg-django/contenttype"
 )
 
 // Action flags
@@ -18,16 +16,17 @@ const (
 	DELETION = 3
 )
 
+// Log represents django_admin_log table
 type Log struct {
 	TableName string `sql:"django_admin_log"`
 
-	Id            uint16
+	ID            uint16
 	ActionTime    time.Time `sql:",notnull"`
-	UserId        uint16    `pg:",fk:User" sql:",notnull"`
+	UserID        uint16    `pg:",fk:User" sql:",notnull"`
 	User          *auth.User
-	ContentTypeId uint16 `pg:",fk:ContentType"`
-	ContentType   *content_type.ContentType
-	ObjectId      string
+	ContentTypeID uint16 `pg:",fk:ContentType"`
+	ContentType   *contenttype.ContentType
+	ObjectID      string
 	ObjectRepr    string `sql:"type:varchar(200),notnull"`
 	ActionFlag    uint16 `sql:",notnull"`
 	ChangeMessage string
@@ -46,14 +45,17 @@ func (l Log) String() string {
 	}
 }
 
+// IsAddition returns true if action is "add"
 func (l *Log) IsAddition() bool {
 	return l.ActionFlag == ADDITION
 }
 
+// IsChange returns true if action is "change"
 func (l *Log) IsChange() bool {
 	return l.ActionFlag == CHANGE
 }
 
+// IsDeletion returns true if action is "delete"
 func (l *Log) IsDeletion() bool {
 	return l.ActionFlag == DELETION
 }

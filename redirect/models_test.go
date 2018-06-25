@@ -8,12 +8,12 @@ import (
 
 func ExampleRedirect_String() {
 	site := site.Site{
-		Id:     1,
+		ID:     1,
 		Domain: "www.example.com",
 		Name:   "Main page",
 	}
 	redirect := Redirect{
-		Id:      1,
+		ID:      1,
 		Site:    &site,
 		OldPath: "/old",
 		NewPath: "/new",

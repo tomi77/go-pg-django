@@ -4,17 +4,17 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/tomi77/go-pg-django/content_type"
+	"github.com/tomi77/go-pg-django/contenttype"
 )
 
 func ExamplePermission_String() {
-	contentType := content_type.ContentType{
-		Id:       1,
+	contentType := contenttype.ContentType{
+		ID:       1,
 		AppLabel: "auth",
 		Model:    "user",
 	}
 	permission := Permission{
-		Id:          1,
+		ID:          1,
 		Name:        "Can add user",
 		ContentType: &contentType,
 		Codename:    "add_user",
@@ -27,7 +27,7 @@ func ExamplePermission_String() {
 
 func ExampleGroup_String() {
 	group := Group{
-		Id:   1,
+		ID:   1,
 		Name: "Admin",
 	}
 
@@ -38,7 +38,7 @@ func ExampleGroup_String() {
 
 func ExampleUser_String() {
 	user := User{
-		Id:          1,
+		ID:          1,
 		Username:    "admin",
 		FirstName:   "John",
 		LastName:    "Doe",

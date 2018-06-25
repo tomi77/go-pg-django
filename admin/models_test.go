@@ -8,9 +8,9 @@ import (
 
 func ExampleLog_String_addition() {
 	var log = Log{
-		Id:         1,
+		ID:         1,
 		ActionTime: time.Now(),
-		UserId:     1,
+		UserID:     1,
 		ObjectRepr: "Test",
 		ActionFlag: ADDITION,
 	}
@@ -22,9 +22,9 @@ func ExampleLog_String_addition() {
 
 func ExampleLog_String_change() {
 	var log = Log{
-		Id:            2,
+		ID:            2,
 		ActionTime:    time.Now(),
-		UserId:        1,
+		UserID:        1,
 		ObjectRepr:    "Test",
 		ActionFlag:    CHANGE,
 		ChangeMessage: "update",
@@ -37,9 +37,9 @@ func ExampleLog_String_change() {
 
 func ExampleLog_String_deletion() {
 	var log = Log{
-		Id:         3,
+		ID:         3,
 		ActionTime: time.Now(),
-		UserId:     1,
+		UserID:     1,
 		ObjectRepr: "Test",
 		ActionFlag: DELETION,
 	}
@@ -51,9 +51,9 @@ func ExampleLog_String_deletion() {
 
 func TestLog_String(t *testing.T) {
 	var log = Log{
-		Id:         4,
+		ID:         4,
 		ActionTime: time.Now(),
-		UserId:     1,
+		UserID:     1,
 		ObjectRepr: "Test",
 	}
 

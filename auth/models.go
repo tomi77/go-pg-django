@@ -1,22 +1,21 @@
-/*
-Models from `django.contrib.auth` package
-*/
+// Package auth contains models from `django.contrib.auth` package
 package auth
 
 import (
 	"fmt"
 	"time"
 
-	"github.com/tomi77/go-pg-django/content_type"
+	"github.com/tomi77/go-pg-django/contenttype"
 )
 
+// Permission represents auth_permission table
 type Permission struct {
 	TableName string `sql:"auth_permission"`
 
-	Id            uint16
+	ID            uint16
 	Name          string `sql:"type:varchar(255),notnull"`
-	ContentTypeId uint16 `pg:",fk:ContentType" sql:",notnull"`
-	ContentType   *content_type.ContentType
+	ContentTypeID uint16 `pg:",fk:ContentType" sql:",notnull"`
+	ContentType   *contenttype.ContentType
 	Codename      string `sql:"type:varchar(100),notnull"`
 }
 
@@ -24,10 +23,11 @@ func (p Permission) String() string {
 	return fmt.Sprintf("%s.%s", p.ContentType.AppLabel, p.Codename)
 }
 
+// Group represents auth_group table
 type Group struct {
 	TableName string `sql:"auth_group"`
 
-	Id          uint16
+	ID          uint16
 	Name        string        `sql:"type:varchar(80),notnull"` // unique
 	Permissions []*Permission `pg:",many2many:group_permissions"`
 }
@@ -36,18 +36,20 @@ func (g Group) String() string {
 	return g.Name
 }
 
+// GroupPermission represents auth_group_permissions table
 type GroupPermission struct {
 	TableName string `sql:"auth_group_permissions"`
 
-	Id           uint16
-	GroupId      uint16 `sql:",notnull"`
-	PermissionId uint16 `sql:",notnull"`
+	ID           uint16
+	GroupID      uint16 `sql:",notnull"`
+	PermissionID uint16 `sql:",notnull"`
 }
 
+// User represents auth_user table
 type User struct {
 	TableName string `sql:"auth_user"`
 
-	Id          uint16
+	ID          uint16
 	Username    string `sql:"type:varchar(150),notnull"`
 	FirstName   string `sql:"type:varchar(30),notnull"`
 	LastName    string `sql:"type:varchar(30),notnull"`
@@ -66,18 +68,20 @@ func (u User) String() string {
 	return u.Username
 }
 
+// UserGroup represents auth_user_groups table
 type UserGroup struct {
 	TableName string `sql:"auth_user_groups"`
 
-	Id      uint16
-	UserId  uint16 `sql:",notnull"`
-	GroupId uint16 `sql:",notnull"`
+	ID      uint16
+	UserID  uint16 `sql:",notnull"`
+	GroupID uint16 `sql:",notnull"`
 }
 
+// UserPermission represents auth_user_user_permissions table
 type UserPermission struct {
 	TableName string `sql:"auth_user_user_permissions"`
 
-	Id           uint16
-	UserId       uint16 `sql:",notnull"`
-	PermissionId uint16 `sql:",notnull"`
+	ID           uint16
+	UserID       uint16 `sql:",notnull"`
+	PermissionID uint16 `sql:",notnull"`
 }

@@ -6,8 +6,8 @@ import (
 
 func ExampleFlatpage_String() {
 	flatpage := Flatpage{
-		Id:                   1,
-		Url:                  "https://www.example.com/",
+		ID:                   1,
+		URL:                  "https://www.example.com/",
 		Title:                "Main page",
 		Content:              "Starting page",
 		EnableComments:       false,

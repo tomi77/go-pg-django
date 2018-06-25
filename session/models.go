@@ -1,12 +1,11 @@
-/*
-Models from `django.contrib.session` package
-*/
+// Package session contains models from `django.contrib.session` package
 package session
 
 import (
 	"time"
 )
 
+// Session represents django_session table
 type Session struct {
 	TableName string `sql:"django_session"`
 
