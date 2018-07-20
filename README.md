@@ -4,6 +4,10 @@
 
 Django models for Golang [go-pg](https://github.com/go-pg/pg)
 
+## Documentation
+
+https://godoc.org/github.com/tomi77/go-pg-django
+
 ## Installation
 
 ~~~sh
