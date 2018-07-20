@@ -1,12 +1,9 @@
 # go-pg-django
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/tomi77/go-pg-django)](https://goreportcard.com/report/github.com/tomi77/go-pg-django)
+[![GoDoc](https://godoc.org/github.com/tomi77/go-pg-django?status.svg)](https://godoc.org/github.com/tomi77/go-pg-django)
 
 Django models for Golang [go-pg](https://github.com/go-pg/pg)
-
-## Documentation
-
-https://godoc.org/github.com/tomi77/go-pg-django
 
 ## Installation
 
