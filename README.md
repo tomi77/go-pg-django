@@ -17,7 +17,9 @@ go get -u github.com/tomi77/go-pg-django
 import "github.com/tomi77/go-pg-django/auth"
 
 type Tab struct {
-  Id: uint32
-  AuthUser *auth.User
+  ID uint32
+
+  AuthUserID uint32 `pg:",fk:AuthUser"`
+  AuthUser   *auth.User
 }
 ~~~
